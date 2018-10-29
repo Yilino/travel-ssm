@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.itcast.dao.FavoriteDao">
+   <select id="findByRidAndUid" resultType="favorite">
+      select * from tab_favorite where rid = #{rid} and uid = #{uid}
+   </select>
+    <select id="findCountByUid" parameterType="int" resultType="int">
+        select rid from tab_favorite where uid = #{uid}
+    </select>
+    <select id="findRidByUid" resultType="int">
+        select rid from tab_favorite where uid =#{uid}
+    </select>
+    <select id="findCountByRid" resultType="int">
+        select count(*) from tab_favorite where rid = #{rid}
+    </select>
+</mapper>

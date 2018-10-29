@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.itcast.dao.RouteDao">
+    <!--根据cid查询所有路线-->
+    <select id="findByCid" resultType="route">
+        select * from tab_route WHERE cid = #{cid}
+    </select>
+    <select id="findOne" parameterType="int" resultType="route">
+        select * from tab_route where rid = #{rid}
+    </select>
+</mapper>

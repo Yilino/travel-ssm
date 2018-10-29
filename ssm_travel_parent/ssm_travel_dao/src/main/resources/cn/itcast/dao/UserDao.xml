@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.itcast.dao.UserDao">
+    <!--查询所有用户-->
+    <select id="findAll" resultType="user">
+        select * from tab_user
+    </select>
+    <!--根据用户名查询用户-->
+    <select id="findUserByName" parameterType="java.lang.String" resultType="user">
+        select * from tab_user where username = #{username}
+    </select>
+    
+    <!--注册 保存用户-->
+    <insert id="saveUser" parameterType="user" >
+        insert into tab_user(username,password,name,birthday,sex,telephone,email,status,code) 
+        values(#{username},#{password},#{name},#{birthday},#{sex},#{telephone},#{email},#{status},#{code})
+    </insert>
+    
+    <!--登陆-->
+    <select id="login" resultType="user">
+        select * from tab_user where username =#{username} and password =#{password}
+    </select>
+</mapper>
